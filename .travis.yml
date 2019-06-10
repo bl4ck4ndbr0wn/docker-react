@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - pip install docker-compose
+  - docker build -t alphanganga/docker-react -f Dockerfile.dev .
+
+script:
+  - docker-compose run tests sh -c "npm run test -- --coverage"
