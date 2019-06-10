@@ -3,15 +3,8 @@ sudo: required
 services:
   - docker
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.4.2
-
 before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
   - docker build -t alphanganga/docker-react -f Dockerfile.dev .
 
 script:
-  - docker-compose run tests sh -c "npm run test -- --coverage"
+  - docker run -e "CI=true" alphanganga/docker-react sh -c "npm run test -- --coverage"
