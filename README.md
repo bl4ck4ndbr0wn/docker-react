@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/bl4ck4ndbr0wn/docker-react.svg?branch=develop)](https://travis-ci.com/bl4ck4ndbr0wn/docker-react)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
